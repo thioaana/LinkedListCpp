@@ -35,13 +35,16 @@ void LList::prepend(int d){
 }
 
 void LList::postpend(int d){
+    cout << "From List::postpend -- Old Head = " << this->head << " Old last = " << this->last << " and Old count = " << this->count << endl;
+    
     this->last = new ListItem(d, nullptr);
-    cout << "From List::postpend : count before addition =" << this->count << endl;
     if (this->count == 0) { 
         this->head = this->last;
     }
     ++this->count;
-    cout << "New Head : " << this->head << " New last : " << this->last << " and New count : " << this->count << endl;
+    
+    cout << "New Head : " << this->head << " New last : " << this->last << " and New count : " << this->count << " and New data = " 
+         << this->last->getData() << endl;
     cout << "--------------\n";
 }
 
@@ -52,7 +55,7 @@ void LList::printL() const{
     else {
         ListItem *temp = this->head;
         for (int i=0; i<count; ++i){
-            cout << temp->getData() << temp->getNext() <<"-->";
+            cout << "(" << temp->getData() << ", " << temp->getNext() <<")-->";
             temp = temp->getNext();
         }
         cout << "end" << endl;
