@@ -12,7 +12,9 @@ class LList{
     public:
         LList();
         LList(const LList & obj);
+        void initialize();
         void prepend(int d);
+        void postpend(int d);
         void printL() const;
 
 };
